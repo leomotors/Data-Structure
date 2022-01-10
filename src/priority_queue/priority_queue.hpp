@@ -4,21 +4,21 @@
 #include <vector>
 
 namespace LM {
-template <typename T> class priority_queue {
+class priority_queue {
   protected:
-    std::vector<T> data;
+    std::vector<int> data;
 
   public:
     priority_queue() {}
-    priority_queue(const std::initializer_list<T> &dat);
-    priority_queue(const std::vector<T> &dat);
+    priority_queue(const std::initializer_list<int> &dat);
+    priority_queue(const std::vector<int> &dat);
 
-    const std::vector<T> &getData();
-    T top();
+    const std::vector<int> &getData();
+    int top();
     std::size_t size();
     bool empty();
     void pop();
-    void push(T value);
+    void push(int value);
 
   private:
     static inline int left(int index);

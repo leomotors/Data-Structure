@@ -5,44 +5,43 @@
 
 namespace LM {
 // * Public Method
-template <typename T>
-priority_queue<T>::priority_queue(const std::initializer_list<T> &dat)
+
+priority_queue::priority_queue(const std::initializer_list<int> &dat)
     : data(dat) {
     for (int i = data.size() - 1; i >= 0; i--) {
         heapify(i);
     }
 }
 
-template <typename T>
-priority_queue<T>::priority_queue(const std::vector<T> &dat) : data(dat) {
+priority_queue::priority_queue(const std::vector<int> &dat) : data(dat) {
     for (int i = data.size() - 1; i >= 0; i--) {
         heapify(i);
     }
 }
 
-template <typename T> const std::vector<T> &priority_queue<T>::getData() {
+const std::vector<int> &priority_queue::getData() {
     return data;
 }
 
-template <typename T> T priority_queue<T>::top() {
+int priority_queue::top() {
     return data.at(0);
 }
 
-template <typename T> std::size_t priority_queue<T>::size() {
+std::size_t priority_queue::size() {
     return data.size();
 }
 
-template <typename T> bool priority_queue<T>::empty() {
+bool priority_queue::empty() {
     return data.empty();
 }
 
-template <typename T> void priority_queue<T>::pop() {
+void priority_queue::pop() {
     data[0] = data.back();
     data.pop_back();
     heapify(0);
 }
 
-template <typename T> void priority_queue<T>::push(T value) {
+void priority_queue::push(int value) {
     data.push_back(value);
     int index = data.size() - 1;
     while (index) {
@@ -56,20 +55,20 @@ template <typename T> void priority_queue<T>::push(T value) {
 }
 
 // * Private Static Inline
-template <typename T> inline int priority_queue<T>::left(int index) {
+inline int priority_queue::left(int index) {
     return index * 2;
 }
 
-template <typename T> inline int priority_queue<T>::right(int index) {
+inline int priority_queue::right(int index) {
     return index * 2 + 1;
 }
 
-template <typename T> inline int priority_queue<T>::parent(int index) {
+inline int priority_queue::parent(int index) {
     return index / 2;
 }
 
 // * Private Method
-template <typename T> void priority_queue<T>::heapify(int index) {
+void priority_queue::heapify(int index) {
     if (left(index) < data.size() && data[left(index)] > data[index]) {
         if (right(index) < data.size() &&
             data[right(index)] > data[left(index)]) {
@@ -88,6 +87,4 @@ template <typename T> void priority_queue<T>::heapify(int index) {
         return;
     }
 }
-
-template class priority_queue<int>;
 } // namespace LM

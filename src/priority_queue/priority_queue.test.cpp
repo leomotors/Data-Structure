@@ -30,14 +30,14 @@ int main() {
 
     auto start2 = std::chrono::steady_clock::now();
 
-    LM::priority_queue<int> l(v);
+    LM::priority_queue l(v);
     while (!l.empty())
         l.pop();
 
     auto end2 = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
-    std::cout << "My own Priority Queue Sorting: " << elapsed_seconds2.count()
-              << "s\n";
+    std::cout << "My own Priority Queue Sorting took: "
+              << elapsed_seconds2.count() << "s\n";
 
     auto start3 = std::chrono::steady_clock::now();
 
@@ -50,8 +50,8 @@ int main() {
 
     auto end3 = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds3 = end3 - start3;
-    std::cout << "std::priority_queue took: " << elapsed_seconds3.count()
-              << "s\n";
+    std::cout << "std::priority_queue Sorting took: "
+              << elapsed_seconds3.count() << "s\n";
 
     auto start4 = std::chrono::steady_clock::now();
 
