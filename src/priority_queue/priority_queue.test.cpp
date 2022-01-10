@@ -1,5 +1,7 @@
 #include "priority_queue.hpp"
 
+#include "../shared/timer.hpp"
+
 #include <algorithm>
 #include <chrono>
 #include <iostream>
@@ -16,49 +18,36 @@ int main() {
 
     std::cout << "Data Size: " << vectorSize << std::endl;
 
-    auto start1 = std::chrono::steady_clock::now();
-
+    TIMERSTART()
     std::vector<int> v;
     v.reserve(vectorSize);
     for (int i = 0; i < vectorSize; i++) {
         v.push_back(distrib(gen));
     }
+    TIMERSTOP("Construction")
 
-    auto end1 = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds1 = end1 - start1;
-    std::cout << "Construction took: " << elapsed_seconds1.count() << "s\n";
-
-    auto start2 = std::chrono::steady_clock::now();
-
+    TIMERSTART()
     LM::priority_queue l(v);
+    TIMERSTOP("My Priority Queue Initialization")
+
+    TIMERSTART()
     while (!l.empty())
         l.pop();
+    TIMERSTOP("My Priority Queue Popping")
 
-    auto end2 = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
-    std::cout << "My own Priority Queue Sorting took: "
-              << elapsed_seconds2.count() << "s\n";
-
-    auto start3 = std::chrono::steady_clock::now();
-
+    TIMERSTART();
     std::priority_queue<int> pq;
     for (int data : v)
         pq.push(data);
+    TIMERSTOP("std::priority_queue Initialization")
 
+    TIMERSTART()
     while (!pq.empty())
         pq.pop();
+    TIMERSTOP("std::priority_queue Popping")
 
-    auto end3 = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds3 = end3 - start3;
-    std::cout << "std::priority_queue Sorting took: "
-              << elapsed_seconds3.count() << "s\n";
-
-    auto start4 = std::chrono::steady_clock::now();
-
+    TIMERSTART()
     std::vector<int> s = v;
     std::sort(s.begin(), s.end());
-
-    auto end4 = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds4 = end4 - start4;
-    std::cout << "std::sort took: " << elapsed_seconds4.count() << "s\n";
+    TIMERSTOP("std::sort")
 }

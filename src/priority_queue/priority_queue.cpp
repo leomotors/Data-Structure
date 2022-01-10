@@ -23,11 +23,11 @@ const std::vector<int> &priority_queue::getData() {
     return data;
 }
 
-int priority_queue::top() {
+int priority_queue::top() const {
     return data.at(0);
 }
 
-std::size_t priority_queue::size() {
+std::size_t priority_queue::size() const {
     return data.size();
 }
 
@@ -68,6 +68,7 @@ inline int priority_queue::parent(int index) {
 }
 
 // * Private Method
+// * Also Badly written, but with power of Optimization, it is fine at runtime
 void priority_queue::heapify(int index) {
     if (left(index) < data.size() && data[left(index)] > data[index]) {
         if (right(index) < data.size() &&

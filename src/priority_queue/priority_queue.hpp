@@ -14,8 +14,8 @@ class priority_queue {
     priority_queue(const std::vector<int> &dat);
 
     const std::vector<int> &getData();
-    int top();
-    std::size_t size();
+    int top() const;
+    std::size_t size() const;
     bool empty();
     void pop();
     void push(int value);
