@@ -1,5 +1,6 @@
 #include "binary_tree.hpp"
 
+#include "../shared/random.hpp"
 #include "../shared/timer.hpp"
 
 #include <algorithm>
@@ -14,10 +15,6 @@
 int main() {
     const int vectorSize = 1e7;
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> distrib(-2e9, 2e9);
-
     std::cout << "Data Size: " << vectorSize << std::endl;
 
     int items1, items2;
@@ -26,7 +23,7 @@ int main() {
     std::vector<int> v;
     v.reserve(vectorSize);
     for (int i = 0; i < vectorSize; i++) {
-        v.push_back(distrib(gen));
+        v.push_back(GEN());
     }
     TIMERSTOP("Data Initialization")
 
