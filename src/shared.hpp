@@ -2,6 +2,15 @@
 
 #include <chrono>
 #include <iostream>
+#include <random>
+
+namespace MacroRandom {
+std::random_device rd;
+std::mt19937 gen(rd());
+std::uniform_int_distribution<int> distrib(-2e9, 2e9);
+} // namespace MacroRandom
+
+#define GEN() MacroRandom::distrib(MacroRandom::gen)
 
 namespace MacroTimer {
 std::chrono::steady_clock::time_point start, end;

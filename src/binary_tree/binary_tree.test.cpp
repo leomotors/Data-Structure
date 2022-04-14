@@ -1,7 +1,6 @@
 #include "binary_tree.hpp"
 
-#include "../shared/random.hpp"
-#include "../shared/timer.hpp"
+#include "../shared.hpp"
 
 #include <algorithm>
 #include <cassert>

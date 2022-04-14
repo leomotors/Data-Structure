@@ -1,0 +1,26 @@
+{
+  "name": "@leomotors/data-structure",
+  "private": true,
+  "version": "1.0.0",
+  "description": "My Implementation of Data Structures",
+  "repository": "https://github.com/Leomotors/Data-Structure",
+  "author": "Leomotors",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "r": "tsc && node dist-scripts run",
+    "c": "./createStructure.sh",
+    "clean": "rm -rf build dist-*",
+    "lint": "prettier --check \"scripts/*.ts\"",
+    "format": "prettier --write \"scripts/*.ts\""
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/node": "^17.0.24",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1"
+  }
+}

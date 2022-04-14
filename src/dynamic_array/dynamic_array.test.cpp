@@ -1,7 +1,6 @@
 #include "dynamic_array.hpp"
 
-#include "../shared/random.hpp"
-#include "../shared/timer.hpp"
+#include "../shared.hpp"
 
 #include <cassert>
 #include <iostream>
