@@ -4,6 +4,8 @@ It is what it is
 
 ~~a.k.a BadCode Collection~~
 
+*No generics because I'm lazy*
+
 ## Scripts
 
 ```bash
