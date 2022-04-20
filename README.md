@@ -20,10 +20,18 @@ yarn c <Structure Name>
 
 ## ✏️ Implemented
 
+### POSN 2
+
 - [x] Priority Queue
 
 - [x] Binary (Search) Tree
 
 - [x] Dynamic Array
 
+### IPST 1
+
 - [ ] AVL Tree
+
+### IPST 2
+
+- [X] Persistent Stack (Full Persistent) ✨✨✨
